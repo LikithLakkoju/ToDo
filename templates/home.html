@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+    <link rel="stylesheet" href="static\css\style.css">
+</head>
+<body>
+    <div class="main">
+    <h1>TO DO</h1>
+    <div>
+    <form action="/addtask" method="POST" enctype="application/x-www-form-urlencoded">
+        <input type="text" placeholder="Enter your task" name="task" required>
+        <button type="submit">Add Task</button>
+    </form>
+    </div>
+    <h3>ToDo List</h3>
+    <table id="mytable">
+        <tr>
+            <th>Id</th>
+            <th>Tasks</th>
+        </tr>
+        {%for i in data%}
+
+        <tr><td>{{loop.index}}</td>
+        
+        <td ><p style="border:none;" id="todo-{{i[0]}}" contenteditable="false" >{{i[1]}}</p></td>  
+        <td><button id="editbtn" databtn="{{i[0]}}">Edit</button></td>
+        <td><a href="/update?id={{i[0]}}&value={{i[1]}}" id="update-{{i[0]}}"><button>Update</button></a></td>
+        <td><a href="/delte?id={{i[0]}}"><button>Delete</button></a></td>
+        </tr>
+        {%endfor%}
+    </table>
+    </div>
+<script src="static\js\script.js"></script>
+
+</body>
+</html>

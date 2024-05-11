@@ -1,0 +1,15 @@
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#mytable,th,td{
+    border: 1px solid black;
+}
+#mytable{
+    font-size: 28px;
+}
+td,th{
+    padding: 5px;
+}
